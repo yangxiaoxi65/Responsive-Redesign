@@ -73,7 +73,7 @@
                 <div class="modal-content">
                     <span class="close-button" aria-label="close">&times;</span>
                     <form id="contact-form">
-                        <!-- 表格内容 -->
+                        <!-- Table content -->
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name">
                         <label for="email">Email:</label>
@@ -114,18 +114,18 @@
             var btn = document.getElementById('menu-button');
             var nav = document.querySelector('.fold-nav');
     
-            // 切换导航栏的显示状态
+            // Switch the display state of the navigation bar
             btn.addEventListener('click', function(event) {
                 nav.classList.toggle('active');
                 event.stopPropagation(); // 阻止事件冒泡到document
             });
     
-            // 点击导航栏时阻止事件冒泡
+            // Prevent events from bubbling when the navigation bar is clicked
             nav.addEventListener('click', function(event) {
                 event.stopPropagation();
             });
     
-            // 点击网站其他地方关闭导航栏
+            // Click elsewhere on the website to close the navigation bar
             document.addEventListener('click', function() {
                 if (nav.classList.contains('active')) {
                     nav.classList.remove('active');
@@ -136,18 +136,18 @@
     
     
     <script>
-        // 获取元素
+        // Get element
         var modal = document.getElementById("modal");
         var btn = document.getElementById("contact-button");
         var span = document.getElementsByClassName("close-button")[0];
         var form = document.getElementById("contact-form");
 
-        // 创建成功消息元素
+        // Create success message element
         var successMessage = document.createElement("div");
         successMessage.innerText = "Your message has been sent successfully!";
-        document.body.appendChild(successMessage); // 将消息元素添加到页面中
+        document.body.appendChild(successMessage); // Add message elements to the page
 
-        // 设置成功消息的样式
+        // Set style for success message
         successMessage.style.position = 'fixed';
         successMessage.style.top = '50%';
         successMessage.style.left = '50%';
@@ -159,36 +159,36 @@
         successMessage.style.textAlign = 'center';
         successMessage.style.maxWidth = '80%';
         successMessage.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
-        successMessage.style.display = "none"; // 默认隐藏
+        successMessage.style.display = "none"; // Hidden by default
 
-        // 点击按钮打开模态
+        // Open modal on button click
         btn.onclick = function() {
             modal.style.display = "block";
         }
 
-        // 点击 x 关闭模态
+        // Click the x to close the modal
         span.onclick = function() {
             modal.style.display = "none";
         }
 
-        // 点击模态外部关闭模态
+        // Click outside the modal to close the modal
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
         }
 
-        // 表单提交事件
+        // form submission event
         form.onsubmit = function(event) {
-            event.preventDefault(); // 阻止表单默认提交行为
-            modal.style.display = "none"; // 关闭模态框
-            successMessage.style.display = "block"; // 显示成功消息
+            event.preventDefault(); // Prevent form default submission behavior
+            modal.style.display = "none"; // Close modal box
+            successMessage.style.display = "block"; // Show success message
 
 
-            // 可选：设置定时器，在几秒后自动隐藏成功消息
+            // Set a timer to automatically hide the success message after a few seconds
             setTimeout(function() {
                 successMessage.style.display = "none";
-            }, 1000); // 3秒后隐藏消息
+            }, 1000); // Hide message after 3 seconds
         }
     </script>    
 </body>
