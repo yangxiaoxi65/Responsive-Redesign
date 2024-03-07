@@ -53,8 +53,9 @@ header{
 }
 #logo {
     width: auto;
-    height: 15vh;
-    max-width: 80%;
+    height: auto;
+    max-width: 80vw;
+    min-height: 15vh;
     display: block;
     margin-left: auto;
     margin-right: auto;
