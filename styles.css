@@ -48,7 +48,7 @@ header{
 #current-page-name {
     margin-left: auto;
     margin-right: auto;
-    color: #9ac9a4;
+    color: #74a46e;
     font-size: 20px;
 }
 #logo {
@@ -64,7 +64,7 @@ header{
 }
 
 #menu-button {
-    color: #B0D7AC;
+    color: #74a46e;
     cursor: pointer;
     border: none;
     background-color: transparent;
