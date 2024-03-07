@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceremony Providence</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <div class="hamburger-menu">
+            <button id="menu-button" aria-label="menu">&#9776;</button>
+            <h1 id="current-page-name">LOCATION</h1> 
+        </div>
+        <nav class="fold-nav">
+            <ul class="fold-list">
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#menus">MENUS</a></li>
+                <li><a href="#tea-ceremony">TEA CEREMONY & TASTING</a></li>
+                <li><a href="#order">ONLINE ORDER & GIFT CARDS</a></li>
+                <li><a href="#events">EVENTS</a></li>
+                <li><a href="#location" id="current-page">LOCATION</a></li>
+                <li><a href="#publication">PUBLICATION</a></li>
+                <li><a href="#career">CAREER</a></li>
+            </ul>
+        </nav>
+        <img src="logo.jpeg" alt="Ceremony Providence logo" id="logo">
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#menus">MENUS</a></li>
+                <li><a href="#tea-ceremony">TEA CEREMONY & TASTING</a></li>
+                <li><a href="#order">ONLINE ORDER & GIFT CARDS</a></li>
+                <li><a href="#events">EVENTS</a></li>
+                <li><a href="#location" id="current">LOCATION</a></li>
+                <li><a href="#publication">PUBLICATION</a></li>
+                <li><a href="#career">CAREER</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="location">
+            <div id="image">
+                <!-- Embed Google Maps -->
+                <iframe id="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2972.9864690798477!2d-71.3997174!3d41.8285895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e44524990dc537%3A0xe60fbaa69942f89f!2s406%20Brook%20St%2C%20Providence%2C%20RI%2002906!5e0!3m2!1sen!2sus!4v1709355659587!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <img src="board.jpeg" alt="Store sign" id="board">
+            </div>
+            <div id="text">
+                <h2>BROOK ST</h2>
+                <p id="address">406 Brook St, Providence, RI 02906</p>
+                <a href="mailto:hello@ceremonypvd.com" aria-label="email address">hello@ceremonypvd.com</a>
+                <br>
+                <div id="time">
+                    <div id="weekdays">
+                        <p>Weekdays: </p>
+                        <p id="weekdays-time">Mon - Fri: 8:00AM - 6:30PM</p>
+                    </div>
+                    <div id="weekends">
+                        <p>Weekends: </p>
+                        <p id="weekends-time">Sat & Sun: 9:00AM - 6:30PM</p>
+                    </div>
+                </div>
+                <br>
+                <p id="description">Anchoring one of Providence’s brand new buildings on the east side, our cafe located on Brook street is bathed in natural light making it a serene escape from the hustle of city life. Relax with one of our signature beverages, indulge on  specialty baked goods, or fuel up on one of our cocktails before getting on with your busy schedule.</p>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <button id="contact-button" aria-label="contact">Contact</button>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" aria-label="close">&times;</span>
+                    <form id="contact-form">
+                        <!-- 表格内容 -->
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email">                       
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message"></textarea>
+                        <button id="submit-button" aria-label="submit">Send</button>
+                    </form>
+                    <div id="success-message" style="display:none;">Your message has been sent successfully!</div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+    </main>
+    
+    <footer>
+        <p>406 Brook St, Providence, RI 02906</p>
+        <div id="social-links">
+            <!-- Email -->
+            <a href="mailto:hello@ceremonypvd.com" class="social-button" id="email" aria-label="send email">
+                <img src="email.png" alt="send email">
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/ceremonypvd/" target="_blank" class="social-button" id="instagram" aria-label="Instagram link">
+                <img src="instagram.png" alt="Instagram link">
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/ceremonypvd" target="_blank" class="social-button" id="facebook" aria-label="Facebook link">
+                <img src="facebook.png" alt="Facebook link">
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var btn = document.getElementById('menu-button');
+            var nav = document.querySelector('.fold-nav');
+    
+            // 切换导航栏的显示状态
+            btn.addEventListener('click', function(event) {
+                nav.classList.toggle('active');
+                event.stopPropagation(); // 阻止事件冒泡到document
+            });
+    
+            // 点击导航栏时阻止事件冒泡
+            nav.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+    
+            // 点击网站其他地方关闭导航栏
+            document.addEventListener('click', function() {
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                }
+            });
+        });
+    </script>
+    
+    
+    <script>
+        // 获取元素
+        var modal = document.getElementById("modal");
+        var btn = document.getElementById("contact-button");
+        var span = document.getElementsByClassName("close-button")[0];
+        var form = document.getElementById("contact-form");
+
+        // 创建成功消息元素
+        var successMessage = document.createElement("div");
+        successMessage.innerText = "Your message has been sent successfully!";
+        document.body.appendChild(successMessage); // 将消息元素添加到页面中
+
+        // 设置成功消息的样式
+        successMessage.style.position = 'fixed';
+        successMessage.style.top = '50%';
+        successMessage.style.left = '50%';
+        successMessage.style.transform = 'translate(-50%, -50%)';
+        successMessage.style.backgroundColor = '#E5F2E3';
+        successMessage.style.color = '#000';
+        successMessage.style.padding = '20px';
+        successMessage.style.borderRadius = '5px';
+        successMessage.style.textAlign = 'center';
+        successMessage.style.maxWidth = '80%';
+        successMessage.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+        successMessage.style.display = "none"; // 默认隐藏
+
+        // 点击按钮打开模态
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // 点击 x 关闭模态
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // 点击模态外部关闭模态
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // 表单提交事件
+        form.onsubmit = function(event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+            modal.style.display = "none"; // 关闭模态框
+            successMessage.style.display = "block"; // 显示成功消息
+
+
+            // 可选：设置定时器，在几秒后自动隐藏成功消息
+            setTimeout(function() {
+                successMessage.style.display = "none";
+            }, 1000); // 3秒后隐藏消息
+        }
+    </script>    
+</body>
+</html>

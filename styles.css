@@ -1,0 +1,478 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-family: Source Sans Pro, sans-serif; /* 正确设置字体 */
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 确保边框不会增加到元素的宽度和高度 */
+    border: 20px solid #F0F4F4; /* 设置边框颜色和宽度 */
+}
+@media (min-width: 667px) {
+    body {
+        border: 35px solid #F0F4F4; /* 在中等屏幕尺寸上增加最大宽度 */
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        border: 50px solid #F0F4F4; /* 在大屏幕尺寸上进一步增加最大宽度 */
+    }
+}
+/* Header and Navigation */
+
+/* 基础样式 */
+header{
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.hamburger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 确保内容从左边开始排列 */   
+    margin-bottom: 20px;
+}
+#menu-button{
+    font-size: 40px;
+}
+#current-page-name {
+    margin-left: auto;
+    margin-right: auto;
+    color: #9ac9a4;
+    font-size: 20px;
+}
+#logo {
+    width: auto;
+    height: 15vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+#menu-button {
+    color: #B0D7AC;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    transition: background-color 0.3s ease; /* 平滑过渡效果 */
+}
+#menu-button:hover {
+    color: #9ac9a4; /* 按钮在悬停时的背景颜色，通常稍微亮一点或暗一点 */
+    transform: scale(1.1); /* 鼠标悬停时放大 */
+}
+.main-nav{
+    display: none;
+}
+.fold-nav {
+    display: none; /* 默认隐藏导航栏 */
+    position: fixed; /* 固定定位，使导航栏悬浮在页面上 */
+    top: 100px;
+    left: 40px;
+    width: 30%; /* 可以调整为实际需要的宽度 */
+    background-color: rgba(225, 237, 225, 0.9); /* 半透明背景，根据需要调整 */
+    z-index: 1000; /* 确保导航栏在其他内容之上 */
+}
+
+.fold-nav.active {
+    display: block; /* 当菜单按钮被点击时显示 */
+}
+
+.fold-nav .fold-list {
+    list-style: none; /* 移除列表项前的默认标记 */
+    padding: 0; /* 移除默认的内边距 */
+    margin: 0; /* 移除默认的外边距 */
+}
+
+.fold-nav .fold-list li {
+    text-align: left; /* 确保列表文本靠左对齐 */
+}
+
+.fold-nav .fold-list li a {
+    display: block; /* 使链接填满整个列表项，增加可点击区域 */
+    padding: 10px; /* 增加一些内边距 */
+    color: black; /* 根据需要调整文本颜色 */
+    text-decoration: none; /* 移除下划线 */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* 添加过渡效果 */
+}
+
+.fold-nav .fold-list li a:hover {
+    background-color: #c3dac1;
+    color: #000;
+    border-radius: 0.5rem;
+    transform: scale(1.1); /* 鼠标悬停时放大 */
+}
+#current-page {
+    background-color: #bfecb8;
+    color: black;
+    border-radius: 0.5rem;
+}
+
+/* 响应式样式 */
+@media (min-width: 667px) {
+    #menu-button {
+        font-size: 50px;
+    }
+    .fold-nav {
+        top: 150px;
+        left: 60px;
+    }
+    #current-page-name {
+        font-size: 25px;
+    }
+
+}
+@media (min-width: 1024px) {
+    .hamburger-menu {
+        display: none;
+    }
+    .main-nav{
+        display: block;/* 在大屏幕上显示导航栏 */
+    }
+    .main-nav .nav-list {
+        display: block; /* 只在大屏幕上显示导航 */
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: block;
+        justify-content: center; /* 确保导航项在容器中居中 */
+        gap: 50px;
+        /* 默认为垂直布局，可根据设计调整 */
+    }
+    
+    .main-nav .nav-list li {
+        display: inline-block; /* 在大屏幕上水平显示 */
+        margin: 0;
+    }
+    
+    .main-nav .nav-list li a {
+        text-decoration: none;
+        color: #000;
+        padding: 0.5rem 1rem;
+        display: block; /* 使padding生效 */
+    }
+    .main-nav .nav-list li a:hover {
+        background-color: #b5e7ad; /* 或您希望的任何颜色 */
+        color: #000;
+        border-radius: 0.5rem;
+        transform: scale(1.1); /* 鼠标悬停时放大 */
+    }
+    
+    #current {
+        display: block; /* 在大屏幕上显示 */
+        background-color: #E5F2E3;
+        color: black;
+        border-radius: 0.5rem;
+        padding: 10px 20px; /* 增加padding以扩大点击区域 */
+        
+    }
+    
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+#location {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding-top: 0px;
+}
+#image {
+    display: flex;
+    flex-direction: column; /* 在小屏幕上堆叠布局 */
+    align-items: center; /* 居中对齐 */
+}
+#board {
+    width: 50%;
+    height: auto;
+    padding-bottom: 20px;
+}
+#google-map {
+    width: 70%; /* 使用百分比宽度 */
+    height: 40vh; /* 保持高度自动，保持图片的原始宽高比 */
+    padding-bottom: 30px;
+}
+
+#time{
+    display: flex;
+    flex-direction: column; /* 在小屏幕上堆叠布局 */
+    align-items: center; /* 居中对齐 */
+}
+@media (min-width: 1024px) {
+    #image {
+        flex-direction: row; 
+        justify-content: space-around; /* 分散对齐 */
+        height: 50vh;
+    }
+
+    #board {
+        width: 20%;
+        height: 100%;
+    }
+    #google-map {
+        width: 50%; /* 使用百分比宽度 */
+        height: 100%; /* 保持高度自动，保持图片的原始宽高比 */
+    }
+
+}
+
+ #text{
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.5;
+ }
+ #text h2{
+    color: gray;
+ }
+ #description{
+    text-align: justify;
+    padding-left: 15px;
+    padding-right: 15px;
+ }
+ #address, #weekdays-time, #weekends-time{
+    font-weight: bold;
+ }
+
+ @media (min-width: 667px) {
+    #text{
+        font-size: 15px;
+     }
+}
+ 
+ @media (min-width: 1024px) {
+    #time{
+        flex-direction: row; 
+        justify-content: space-around; /* 分散对齐 */
+    }
+    #text{
+        font-size: 20px;
+ }
+}
+#contact{
+    
+    text-align: center;
+    align-items: center;
+}
+#contact-button {
+    margin: 10px;
+    background-color: #B0D7AC;
+    color: #000000;
+    border-radius: 20px;
+    border: none;
+    width: 80px;
+    height: 30px;
+    font-size: 12px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    transition: background-color 0.3s ease; /* 平滑过渡效果 */
+}
+@media (min-width: 667px) {
+    #contact-button {
+        width: 100px; 
+        height: 40px;
+        font-size: 15px;
+        margin: 20px;
+   }
+}
+
+@media (min-width: 1024px) {
+    #contact-button {
+        width: 150px; 
+        height: 50px;
+        font-size: 20px;
+        margin: 30px;
+   }
+}
+/* 改变按钮悬停时的样式 */
+#contact-button:hover {
+    background-color: #9ac9a4; /* 按钮在悬停时的背景颜色，通常稍微亮一点或暗一点 */
+    transform: scale(1.1); /* 鼠标悬停时放大 */
+}
+/* 遮罩样式 */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed; /* 固定定位 */
+    z-index: 1; /* 置于顶层 */
+    left: 0;
+    top: 0;
+    width: 100%; /* 全屏宽 */
+    height: 100%; /* 全屏高 */
+    overflow: auto; /* 启用滚动 */
+    background-color: rgba(0,0,0,0.4); /* 半透明背景 */
+}
+
+/* 模态内容框 */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 居中显示 */
+    padding: 20px;
+    border: 10px solid #F0F4F4;
+    border-radius: 5px;
+    width: 50%; /* 宽度 */
+}
+
+/* 关闭按钮 */
+.close-button {
+    color: #B0D7AC;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* 平滑过渡效果 */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #9ac9a4;
+    text-decoration: none;
+    cursor: pointer;
+    transform: scale(1.1); /* 鼠标悬停时放大 */
+}
+#contact-form {
+    font-size: 12px;
+}
+/* 为所有表单控件设置块级显示并居中 */
+#contact-form label,
+#contact-form input,
+#contact-form textarea{
+    display: block; /* 使元素以块级形式显示 */
+    margin: 10px auto;
+    width: 50%; /* 设置宽度 */
+    box-sizing: border-box; /* 确保宽度包含内边距和边框 */
+}
+
+/* 调整输入框和文本区域的样式 */
+#contact-form input {
+    padding: 8px; /* 添加一些内边距使文本框更易于输入 */
+}
+
+#contact-form textarea {
+    padding: 8px; /* 添加一些内边距使文本框更易于输入 */
+}
+
+/* 调整按钮的样式 */
+#submit-button {
+    cursor: pointer; /* 改变鼠标指针形状为点击提示 */
+    padding: 8px 16px;
+    background-color: #B0D7AC;
+    color: #000;
+    border: none; /* 移除边框 */
+    border-radius: 5px; /* 可选：为按钮添加圆角 */
+    font-size: 16px; /* 可调整为所需的字体大小 */
+    width: auto; /* 按钮宽度可以根据内容自适应 */
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    transition: background-color 0.3s ease; /* 平滑过渡效果 */
+}
+/* 改变按钮悬停时的样式 */
+#submit-button:hover {
+    background-color: #9ac9a4; /* 按钮在悬停时的背景颜色，通常稍微亮一点或暗一点 */
+    transform: scale(1.1); /* 鼠标悬停时放大 */
+}
+@media (min-width: 667px) {
+    #contact-form {
+        font-size: 15px;
+    }
+    #submit-button {
+        width: 100px; 
+        height: 40px;
+        font-size: 15px;
+        margin: 20px;
+   }
+}
+
+@media (min-width: 1024px) {
+    #contact-form {
+        font-size: 20px;
+    }
+    #submit-button {
+        width: 150px; 
+        height: 50px;
+        font-size: 20px;
+        margin: 30px;
+   }
+}
+
+/* Footer */
+footer {
+    display: flex; /* 使用 Flexbox 布局 */
+    flex-direction: column; /* 默认情况下，竖直排列 */
+    align-items: center; /* 垂直居中 */
+    padding: 30px 50px; /* 添加一些内边距 */
+}
+footer p {
+    font-size: 12px;
+    white-space: nowrap; /* 防止文本换行 */
+    text-align: center; /* 文本居中显示 */
+}
+
+#social-links {
+    padding-top: 15px;
+    display: flex; /* 同样应用 Flexbox 布局 */
+    justify-content: center; /* 将按钮居中对齐 */
+    gap: 10px; /* 按钮之间的间距 */
+}
+.social-button {
+    display: inline-block; /* 让<a>标签表现得像块级元素，同时允许设置宽度和高度 */
+    border: none; /* 移除边框 */
+    background-color: transparent; /* 背景色透明 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+    border-radius: 50%; /* 圆形按钮 */
+    text-decoration: none; /* 移除下划线 */
+    width: 20px; /* 定义宽度 */
+    height: 20px; /* 定义高度 */
+}
+.social-button:hover {
+    transform: scale(1.1); /* 鼠标悬停时放大 */
+}
+
+.social-button img {
+    width: 100%; /* 让图片填充整个<a>标签 */
+    height: auto; /* 保持图片的宽高比 */
+    transition: opacity 0.3s ease; /* 图片透明度变化的平滑过渡 */
+}
+.social-button:hover img {
+    opacity: 0.7; /* 鼠标悬停时改变图片透明度 */
+}
+/* 当屏幕宽度大于667px时的样式 */
+@media (min-width: 667px) {
+    footer p {
+        font-size: 15px;
+    }
+    .social-button {
+        width: 25px; /* 按钮宽度 */
+        height: 25px; /* 按钮高度 */
+    }
+}
+
+/* 当屏幕宽度大于1024px时的样式 */
+@media (min-width: 1024px) {
+    footer {
+        flex-direction: row; /* 横向排列 */
+        justify-content: space-between; 
+    }
+    footer p {
+        font-size: 20px;
+    }
+    #social-links {
+        justify-content: flex-end; /* 将按钮对齐到右边 */
+        margin-top: 0; /* 移除与上面文本的间距 */
+    }
+    .social-button {
+        width: 30px; /* 按钮宽度 */
+        height: 30px; /* 按钮高度 */
+    }
+    
+}
+
